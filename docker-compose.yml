@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  agentkeys:
+    build: .
+    container_name: agentkeys
+    ports:
+      - "8888:8888"
+    volumes:
+      - agentkeys-data:/data
+    environment:
+      - AGENTKEYS_ADMIN_PASSWORD=changeme
+      - AGENTKEYS_MASTER_KEY=change-this-to-a-secure-passphrase
+      - AGENTKEYS_HOST=0.0.0.0
+    restart: unless-stopped
+
+volumes:
+  agentkeys-data:
