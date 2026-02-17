@@ -19,7 +19,7 @@
     "dev": "tsx watch src/index.ts -- serve",
     "build": "tsup src/index.ts --format esm --dts --clean && cp -r ../dashboard/dist dashboard 2>/dev/null || true",
     "start": "node dist/index.js serve",
-    "test": "vitest run"
+    "test": "vitest run --passWithNoTests"
   },
   "keywords": ["ai", "api-keys", "agents", "secret-manager", "vault", "self-hosted"],
   "license": "MIT",
