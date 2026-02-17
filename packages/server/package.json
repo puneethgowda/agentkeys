@@ -38,6 +38,7 @@
     "zod": "^3.24.0"
   },
   "devDependencies": {
+    "@agentkeys/dashboard": "workspace:*",
     "@types/bcrypt": "^5.0.2",
     "@types/better-sqlite3": "^7.6.12",
     "@types/node": "^22.10.0",
