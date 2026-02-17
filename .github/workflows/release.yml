@@ -25,8 +25,17 @@ jobs:
           cache: pnpm
           registry-url: "https://registry.npmjs.org"
 
+      - name: Extract version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Set package versions
+        run: |
+          npm version ${{ steps.version.outputs.version }} --no-git-tag-version --workspace=packages/server
+          npm version ${{ steps.version.outputs.version }} --no-git-tag-version --workspace=packages/sdk
+
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build
         run: pnpm build
