@@ -14,10 +14,10 @@
   "bin": {
     "agentkeys": "./dist/index.js"
   },
-  "files": ["dist", "dashboard"],
+  "files": ["dist", "dashboard", "README.md"],
   "scripts": {
     "dev": "tsx watch src/index.ts -- serve",
-    "build": "tsup src/index.ts --format esm --dts --clean && cp -r ../dashboard/dist dashboard 2>/dev/null || true",
+    "build": "tsup src/index.ts --format esm --dts --clean && mkdir -p dashboard && cp -r ../dashboard/dist/* dashboard/ 2>/dev/null || true",
     "start": "node dist/index.js serve",
     "test": "vitest run --passWithNoTests"
   },

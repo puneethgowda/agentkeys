@@ -40,6 +40,9 @@ jobs:
       - name: Build
         run: pnpm build
 
+      - name: Copy README to server package
+        run: cp README.md packages/server/README.md
+
       - name: Publish @agentkeys/client
         run: pnpm publish --no-git-checks
         working-directory: packages/sdk

@@ -59,7 +59,7 @@ export function createApp(config: { masterKey: Buffer; dataDir: string }) {
     if (c.req.path.startsWith("/api")) {
       return c.json({ error: "Not found" }, 404);
     }
-    return c.html("<!DOCTYPE html><html><body><h1>AgentKeys</h1><p>Dashboard not built. Run: pnpm build</p></body></html>");
+    return c.html("<!DOCTYPE html><html><body><h1>AgentKeys</h1><p>Dashboard not available. If installed via npm, reinstall with: npm i -g agentkeys</p></body></html>");
   });
 
   return app;

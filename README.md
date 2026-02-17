@@ -70,8 +70,9 @@ docker run -d \
 ### With npm
 
 ```bash
-npx agentkeys init
-npx agentkeys serve
+npm install -g agentkeys
+agentkeys init
+agentkeys serve
 ```
 
 Then open http://localhost:8888 to access the dashboard.
@@ -80,10 +81,10 @@ Then open http://localhost:8888 to access the dashboard.
 
 ```bash
 # Store an API key
-npx agentkeys key add openai --value "sk-your-key"
+agentkeys key add openai --value "sk-your-key"
 
 # Create an agent with access to that key
-npx agentkeys agent create my-bot --scopes openai
+agentkeys agent create my-bot --scopes openai
 # → Token: agt_7f8a9b2c... (save this!)
 ```
 
@@ -229,7 +230,7 @@ See [docs/security.md](docs/security.md) for full details.
 |---|---|
 | Docker | `docker run -d -p 8888:8888 agentkeys/server` |
 | Docker Compose | `docker compose up -d` |
-| npm | `npx agentkeys init && npx agentkeys serve` |
+| npm | `npm i -g agentkeys && agentkeys serve` |
 
 See [docs/self-hosting.md](docs/self-hosting.md) for production deployment guides.
 
