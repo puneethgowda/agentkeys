@@ -8,7 +8,7 @@ Replace your `.env` files. Give your AI agents scoped, temporary, audited access
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue.svg)](https://typescriptlang.org)
-[![Docker](https://img.shields.io/badge/Docker-Ready-blue.svg)](Dockerfile)
+[![npm](https://img.shields.io/badge/npm-agentkeys-red.svg)](https://www.npmjs.com/package/agentkeys)
 
 </div>
 
@@ -17,7 +17,9 @@ Replace your `.env` files. Give your AI agents scoped, temporary, audited access
 One command to run:
 
 ```bash
-docker run -d -p 8888:8888 -e AGENTKEYS_ADMIN_PASSWORD=admin agentkeys/server
+npm install -g agentkeys
+agentkeys init
+agentkeys serve
 ```
 
 Three lines to integrate:
@@ -52,30 +54,40 @@ AgentKeys fixes all of this. Store keys in an encrypted vault. Give each agent o
 - **Dashboard UI** — clean, dark-themed web UI for managing everything
 - **TypeScript + Python clients** — first-class support for both ecosystems
 - **CLI management** — manage keys and agents from the terminal
-- **Single Docker container** — no Redis, no Postgres, no external dependencies
+- **No external dependencies** — no Redis, no Postgres, just Node.js
 - **Self-hosted** — all data stays on your infrastructure
 
 ## Quick Start
 
-### With Docker
-
-```bash
-docker run -d \
-  -p 8888:8888 \
-  -v agentkeys-data:/data \
-  -e AGENTKEYS_ADMIN_PASSWORD=admin \
-  agentkeys/server
-```
-
-### With npm
+### 1. Install globally
 
 ```bash
 npm install -g agentkeys
+```
+
+### 2. Initialize the server
+
+Run this once to set up your data directory and admin password:
+
+```bash
 agentkeys init
+```
+
+You'll be prompted to set an admin password. This encrypts your vault.
+
+### 3. Start the server
+
+```bash
 agentkeys serve
 ```
 
-Then open http://localhost:8888 to access the dashboard.
+The server starts on port 8888 by default. Open http://localhost:8888 to access the dashboard and log in with your admin password.
+
+To use a custom port or bind to a specific host:
+
+```bash
+agentkeys serve --port 9000 --host 0.0.0.0
+```
 
 ### Add a key and create an agent
 
@@ -228,9 +240,9 @@ See [docs/security.md](docs/security.md) for full details.
 
 | Method | Command |
 |---|---|
-| Docker | `docker run -d -p 8888:8888 agentkeys/server` |
+| npm (recommended) | `npm i -g agentkeys && agentkeys serve` |
+| Docker | `docker run -d -p 8888:8888 -v agentkeys-data:/data -e AGENTKEYS_ADMIN_PASSWORD=yourpassword ghcr.io/puneethgowda/agentkeys:latest` |
 | Docker Compose | `docker compose up -d` |
-| npm | `npm i -g agentkeys && agentkeys serve` |
 
 See [docs/self-hosting.md](docs/self-hosting.md) for production deployment guides.
 
