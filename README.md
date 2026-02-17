@@ -247,7 +247,7 @@ See [docs/self-hosting.md](docs/self-hosting.md) for production deployment guide
 
 ```bash
 # Clone the repo
-git clone https://github.com/aravat90/agentkeys.git
+git clone https://github.com/puneethgowda/agentkeys.git
 cd agentkeys
 
 # Install dependencies
@@ -270,6 +270,6 @@ MIT
 
 If this is useful, give it a star.
 
-**[GitHub](https://github.com/aravat90/agentkeys)**
+**[GitHub](https://github.com/puneethgowda/agentkeys)**
 
 </div>

@@ -12,5 +12,5 @@ requires-python = ">=3.9"
 dependencies = ["httpx>=0.25.0"]
 
 [project.urls]
-Homepage = "https://github.com/aravat90/agentkeys"
-Documentation = "https://github.com/aravat90/agentkeys/tree/main/docs"
+Homepage = "https://github.com/puneethgowda/agentkeys"
+Documentation = "https://github.com/puneethgowda/agentkeys/tree/main/docs"
