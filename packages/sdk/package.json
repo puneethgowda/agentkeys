@@ -1,7 +1,15 @@
 {
-  "name": "agentkeys",
+  "name": "@agentkeys/client",
   "version": "0.1.0",
-  "description": "TypeScript SDK for AgentKeys — API key manager for AI agents",
+  "description": "TypeScript client for AgentKeys — API key manager for AI agents",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/puneethgowda/agentkeys.git",
+    "directory": "packages/sdk"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

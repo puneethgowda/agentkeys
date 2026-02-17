@@ -1,4 +1,4 @@
-import { AgentKeys } from "agentkeys";
+import { AgentKeys } from "@agentkeys/client";
 import { generateText } from "ai";
 import { createOpenAI } from "@ai-sdk/openai";
 

@@ -1,17 +1,28 @@
 {
-  "name": "@agentkeys/server",
+  "name": "agentkeys",
   "version": "0.1.0",
-  "private": true,
+  "description": "Self-hosted API key manager for AI agents",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/puneethgowda/agentkeys.git",
+    "directory": "packages/server"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "type": "module",
   "bin": {
     "agentkeys": "./dist/index.js"
   },
+  "files": ["dist", "dashboard"],
   "scripts": {
     "dev": "tsx watch src/index.ts -- serve",
-    "build": "tsup src/index.ts --format esm --dts --clean",
+    "build": "tsup src/index.ts --format esm --dts --clean && cp -r ../dashboard/dist dashboard 2>/dev/null || true",
     "start": "node dist/index.js serve",
     "test": "vitest run"
   },
+  "keywords": ["ai", "api-keys", "agents", "secret-manager", "vault", "self-hosted"],
+  "license": "MIT",
   "dependencies": {
     "@hono/node-server": "^1.13.0",
     "argon2": "^0.41.0",

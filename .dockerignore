@@ -1,0 +1,8 @@
+node_modules
+.git
+.github
+agentkeys-data
+*.md
+LICENSE
+.npmrc
+.dockerignore

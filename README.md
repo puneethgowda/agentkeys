@@ -23,7 +23,7 @@ docker run -d -p 8888:8888 -e AGENTKEYS_ADMIN_PASSWORD=admin agentkeys/server
 Three lines to integrate:
 
 ```typescript
-import { AgentKeys } from "agentkeys";
+import { AgentKeys } from "@agentkeys/client";
 const agent = new AgentKeys({ server: "http://localhost:8888", token: "agt_..." });
 const key = await agent.get("openai");
 ```
@@ -50,7 +50,7 @@ AgentKeys fixes all of this. Store keys in an encrypted vault. Give each agent o
 - **Usage budgets** — daily request limits per agent
 - **Full audit trail** — every key access is logged with agent, IP, and timestamp
 - **Dashboard UI** — clean, dark-themed web UI for managing everything
-- **TypeScript + Python SDKs** — first-class support for both ecosystems
+- **TypeScript + Python clients** — first-class support for both ecosystems
 - **CLI management** — manage keys and agents from the terminal
 - **Single Docker container** — no Redis, no Postgres, no external dependencies
 - **Self-hosted** — all data stays on your infrastructure
@@ -90,7 +90,7 @@ npx agentkeys agent create my-bot --scopes openai
 ### Use in your code
 
 ```typescript
-import { AgentKeys } from "agentkeys";
+import { AgentKeys } from "@agentkeys/client";
 
 const agent = new AgentKeys({
   server: "http://localhost:8888",

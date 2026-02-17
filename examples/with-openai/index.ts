@@ -1,4 +1,4 @@
-import { AgentKeys } from "agentkeys";
+import { AgentKeys } from "@agentkeys/client";
 import OpenAI from "openai";
 
 const agent = new AgentKeys({

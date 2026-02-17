@@ -1,8 +1,13 @@
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { secureHeaders } from "hono/secure-headers";
 import { serveStatic } from "@hono/node-server/serve-static";
 import { requestLogger } from "./middleware/logger.js";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const DASHBOARD_DIR = path.resolve(__dirname, "../dashboard");
 import healthRoutes from "./routes/health.js";
 import adminAuthRoutes from "./routes/admin.auth.js";
 import adminKeys from "./routes/admin.keys.js";
@@ -47,7 +52,7 @@ export function createApp(config: { masterKey: Buffer; dataDir: string }) {
   });
 
   // Serve dashboard static files (production)
-  app.use("/*", serveStatic({ root: "./dashboard" }));
+  app.use("/*", serveStatic({ root: DASHBOARD_DIR }));
 
   // SPA fallback — serve index.html for non-API routes
   app.get("*", (c) => {
