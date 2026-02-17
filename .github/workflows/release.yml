@@ -31,8 +31,8 @@ jobs:
 
       - name: Set package versions
         run: |
-          cd packages/server && npm version ${{ steps.version.outputs.version }} --no-git-tag-version --allow-same-version
-          cd packages/sdk && npm version ${{ steps.version.outputs.version }} --no-git-tag-version --allow-same-version
+          (cd packages/server && npm version ${{ steps.version.outputs.version }} --no-git-tag-version --allow-same-version)
+          (cd packages/sdk && npm version ${{ steps.version.outputs.version }} --no-git-tag-version --allow-same-version)
 
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
